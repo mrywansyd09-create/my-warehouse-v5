@@ -1,0 +1,33 @@
+{
+  "entities": {
+    "products": {
+      "title": "Product",
+      "description": "Store inventory items",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "sku": { "type": "string" },
+        "category": { "type": "string" },
+        "stock": { "type": "number" },
+        "minStock": { "type": "number" },
+        "price": { "type": "number" },
+        "priceCurrency": { "type": "string", "enum": ["USD", "IQD"] },
+        "status": { "type": "string", "enum": ["In Stock", "Low Stock", "Out of Stock"] },
+        "lastUpdated": { "type": "string" },
+        "updatedBy": { "type": "string" },
+        "iconType": { "type": "string" },
+        "imageUri": { "type": "string" },
+        "location": { "type": "string" },
+        "description": { "type": "string" }
+      },
+      "required": ["id", "name", "sku", "category", "stock", "price"]
+    }
+  },
+  "firestore": {
+    "stores/{storeId}/products": {
+      "schema": "products",
+      "description": "Collection of products for a specific store"
+    }
+  }
+}
